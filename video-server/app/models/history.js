@@ -9,14 +9,14 @@ module.exports.all = function(cb) {
 
 module.exports.add = function(data, cb) {
     let collection = db.get().collection('history');
-    collection.insertOne({ id: data.id, title: data.title }, function(err) {
+    collection.insertOne({ id: data.id, title: data.title, uniqId: data.uniqId }, function(err) {
         cb(err);
     });
 };
 
-module.exports.delete = function(id, cb) {
+module.exports.delete = function(uniqId, cb) {
     let collection = db.get().collection('history');
-    collection.deleteOne({ id }, function(err) {
+    collection.deleteOne({ uniqId }, function(err) {
         cb(err);
     });
 };

@@ -8,7 +8,7 @@ export default class VideoSearchResult extends Component {
     }
 
     handleClick() {
-        this.props.onPlay({ id: this.props.id, title: this.props.name });
+        this.props.onPlay({ id: this.props.id, title: this.props.name, uniqId: this.props.uniqId });
     };
 
     render() {

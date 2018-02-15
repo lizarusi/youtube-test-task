@@ -16,7 +16,6 @@ export default class YouTube extends Component {
         this.search = this.search.bind(this);
         this.onPlay = this.onPlay.bind(this);
         this.onDelete = this.onDelete.bind(this);
-        this.onBlur = this.onBlur.bind(this);
     }
 
     componentWillMount() {
@@ -36,29 +35,24 @@ export default class YouTube extends Component {
     };
 
     onPlay(obj) {
+        obj.uniqId = obj.id + Date.now().toString();
         ApiService.addToQueue(obj)
             .then(() => {
                 this.setState({
                     videoId: obj.id,
-                    history: this.state.history.concat([obj]),
+                    history: [obj].concat(this.state.history),
                     results: []
                 });
             });
     }
 
-    onDelete(id) {
-        ApiService.deleteFromQueue(id)
+    onDelete(uniqId) {
+        ApiService.deleteFromQueue(uniqId)
             .then((res) => {
                 this.setState({
-                    history: this.state.history.filter((item) => item.id !== id),
+                    history: this.state.history.filter((item) => item.uniqId !== uniqId),
                 });
             });
-    }
-
-    onBlur(e) {
-        this.setState({
-            results: []
-        });
     }
 
     render() {
@@ -72,14 +66,15 @@ export default class YouTube extends Component {
                                 {this.state.results.map((item, i) =>
                                     <VideoSearchResult onPlay={this.onPlay} key={i}
                                                        id={item.id} name={item.name}
-                                                       url={item.thumbnail.url}/>)
+                                                       url={item.thumbnail.url}
+                                                       uniqId={item.uniqId} />)
                                 }
                             </div> ) : ''
                     }
                 </div>
                 <div className='YouTube__content'>
                     <div className='YouTube__history'>
-                        <VideoHistory onDelete={this.onDelete} history={this.state.history}/>
+                        <VideoHistory onPlay={this.onPlay} onDelete={this.onDelete} history={this.state.history}/>
                     </div>
                     <div className='YouTube__player'>
                         <Player videoId={this.state.videoId}/>

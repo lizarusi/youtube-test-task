@@ -26,7 +26,8 @@ export default class ApiService {
                 return  {
                     id: item.id.videoId,
                     name: item.snippet.title,
-                    thumbnail: item.snippet.thumbnails.high
+                    thumbnail: item.snippet.thumbnails.high ,
+                    uniqId: item.id.videoId + Date.now().toString()
                 }
               })
            }).catch((err) => {
@@ -63,7 +64,7 @@ export default class ApiService {
             url:  `${SERVER_URL}` ,
             responseType:'stream',
         }).then((res) => {
-            return res.data;
+            return res.data.reverse();
         })
     }
 }

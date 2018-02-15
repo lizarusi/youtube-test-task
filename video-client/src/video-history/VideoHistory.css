@@ -12,7 +12,9 @@
     justify-content: space-between;
 }
 
-.VideoHistory__row p {
+.VideoHistory__row a {
+    cursor: pointer;
+    text-decoration: underline;
     white-space: nowrap;
     width: 75%;
     overflow: hidden;
@@ -20,6 +22,7 @@
 }
 
 .VideoHistory__row button {
+    cursor: pointer;
     border: none;
     box-shadow: none;
     margin: 1em;

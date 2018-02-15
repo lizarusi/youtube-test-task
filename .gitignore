@@ -1,4 +1,5 @@
-./video-client/node_modules
-./video-server/node_modules
+video-client/node_modules
+video-server/node_modules
 .DS_Store
 */.idea
+.idea

@@ -4,11 +4,16 @@ import './VideoHistory.css';
 export class VideoHistory extends Component {
     constructor() {
         super();
-        this.handleClick = this.handleClick.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
+        this.handlePlay = this.handlePlay.bind(this);
     }
 
-    handleClick(id) {
-      this.props.onDelete(id);
+    handleDelete(uniqId) {
+      this.props.onDelete(uniqId);
+    }
+
+    handlePlay(item) {
+        this.props.onPlay(item);
     }
 
     render() {
@@ -20,8 +25,8 @@ export class VideoHistory extends Component {
                         this.props.history.map((item, i) => {
                             return (
                                 <div className="VideoHistory__row" key={i}>
-                                    <p>{item.title}</p>
-                                    <button onClick={() => this.handleClick(item.id)}> Delete</button>
+                                    <a onClick={() => this.handlePlay(item)}>{item.title}</a>
+                                    <button onClick={() => this.handleDelete(item.uniqId)}> Delete</button>
                                 </div>
                             )
                         })
