@@ -1,0 +1,26 @@
+.VideoSearchResult__wrapper {
+    display: flex;
+    width: 100%;
+    height: 150px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    border-bottom: 1px solid lightgray;
+    z-index: inherit;
+}
+
+.VideoSearchResult__play {
+    width: 100px;
+}
+
+.VideoSearchResult__preview {
+    height: 80%;
+}
+
+.VideoSearchResult__title {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0 1em;
+}

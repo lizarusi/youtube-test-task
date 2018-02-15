@@ -1,0 +1,10 @@
+.VideoSearch__input {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+}
+
+.VideoSearch__icon {
+   font-size: 42px;
+}

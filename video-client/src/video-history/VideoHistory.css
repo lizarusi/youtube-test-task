@@ -1,0 +1,28 @@
+.VideoHistory__container {
+    padding-left: 2em;
+}
+
+.VideoHistory__list {
+    display: flex;
+    flex-direction: column;
+}
+
+.VideoHistory__row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.VideoHistory__row p {
+    white-space: nowrap;
+    width: 75%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.VideoHistory__row button {
+    border: none;
+    box-shadow: none;
+    margin: 1em;
+    background-color: red;
+    color: white;
+}

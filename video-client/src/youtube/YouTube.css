@@ -1,0 +1,32 @@
+.YouTube__search {
+    position: relative;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.YouTube__search-results {
+    position: absolute;
+    width: 100%;
+    border: 1px solid lightgray;
+    height: 300px;
+    overflow-y: scroll;
+    background-color: white;
+    z-index: 99999;
+}
+
+.YouTube__content {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.YouTube__history {
+    width: 25%;
+}
+
+.YouTube__player {
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    padding: 3em 0;
+}
